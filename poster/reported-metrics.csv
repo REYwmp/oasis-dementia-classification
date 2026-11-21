@@ -1,0 +1,10 @@
+model,train_accuracy,test_accuracy,train_f1,test_f1
+Logistic regression,0.95,0.95,0.94,0.94
+KNN,1.00,0.88,1.00,0.88
+Gaussian naive Bayes,0.95,0.95,0.94,0.94
+Decision tree,1.00,0.88,1.00,0.89
+SVM,0.97,0.89,0.97,0.88
+Stacking,0.95,0.94,0.95,0.94
+Random forest,0.98,0.94,0.98,0.93
+AdaBoost,0.96,0.93,0.96,0.93
+XGBoost,0.96,0.95,0.95,0.95

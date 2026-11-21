@@ -1,0 +1,51 @@
+protocol,model,n,tn,fp,fn,tp,accuracy,balanced_accuracy,f1_positive,f1_macro
+visit_split_with_cdr,Majority baseline,112,57,0,55,0,0.508929,0.500000,0.000000,0.337278
+visit_split_with_cdr,Logistic regression,112,57,0,6,49,0.946429,0.945455,0.942308,0.946154
+visit_split_with_cdr,KNN,112,57,0,5,50,0.955357,0.954545,0.952381,0.955182
+visit_split_with_cdr,Gaussian naive Bayes,112,57,0,6,49,0.946429,0.945455,0.942308,0.946154
+visit_split_with_cdr,Decision tree,112,52,5,8,47,0.883929,0.883413,0.878505,0.883697
+visit_split_with_cdr,SVM,112,57,0,6,49,0.946429,0.945455,0.942308,0.946154
+visit_split_with_cdr,Stacking,112,57,0,6,49,0.946429,0.945455,0.942308,0.946154
+visit_split_with_cdr,Random forest,112,57,0,5,50,0.955357,0.954545,0.952381,0.955182
+visit_split_with_cdr,AdaBoost,112,56,1,6,49,0.937500,0.936683,0.933333,0.937255
+visit_split_with_cdr,XGBoost,112,57,0,5,50,0.955357,0.954545,0.952381,0.955182
+visit_split_without_cdr,Majority baseline,112,57,0,55,0,0.508929,0.500000,0.000000,0.337278
+visit_split_without_cdr,Logistic regression,112,49,8,20,35,0.750000,0.748006,0.714286,0.746032
+visit_split_without_cdr,KNN,112,51,6,23,32,0.741071,0.738278,0.688172,0.733399
+visit_split_without_cdr,Gaussian naive Bayes,112,55,2,25,30,0.758929,0.755183,0.689655,0.746287
+visit_split_without_cdr,Decision tree,112,45,12,16,39,0.750000,0.749282,0.735849,0.749280
+visit_split_without_cdr,SVM,112,51,6,22,33,0.750000,0.747368,0.702128,0.743372
+visit_split_without_cdr,Stacking,112,47,10,21,34,0.723214,0.721372,0.686869,0.719434
+visit_split_without_cdr,Random forest,112,48,9,20,35,0.741071,0.739234,0.707071,0.737535
+visit_split_without_cdr,AdaBoost,112,54,3,25,30,0.750000,0.746411,0.681818,0.737968
+visit_split_without_cdr,XGBoost,112,48,9,21,34,0.732143,0.730144,0.693878,0.727891
+baseline_mri_mmse,Majority baseline,150,85,0,65,0,0.566667,0.500000,0.000000,0.361702
+baseline_mri_mmse,Logistic regression,150,82,3,19,46,0.853333,0.836199,0.807018,0.844369
+baseline_mri_mmse,KNN,150,80,5,25,40,0.800000,0.778281,0.727273,0.784689
+baseline_mri_mmse,Gaussian naive Bayes,150,82,3,19,46,0.853333,0.836199,0.807018,0.844369
+baseline_mri_mmse,Decision tree,150,65,20,18,47,0.746667,0.743891,0.712121,0.742965
+baseline_mri_mmse,SVM,150,82,3,24,41,0.820000,0.797738,0.752294,0.805466
+baseline_mri_mmse,Stacking,150,80,5,19,46,0.840000,0.824434,0.793103,0.831334
+baseline_mri_mmse,Random forest,150,77,8,20,45,0.813333,0.799095,0.762712,0.804433
+baseline_mri_mmse,AdaBoost,150,81,4,18,47,0.853333,0.838009,0.810345,0.845390
+baseline_mri_mmse,XGBoost,150,76,9,16,49,0.833333,0.823982,0.796748,0.827753
+baseline_mri_only,Majority baseline,150,85,0,65,0,0.566667,0.500000,0.000000,0.361702
+baseline_mri_only,Logistic regression,150,65,20,39,26,0.606667,0.582353,0.468468,0.578150
+baseline_mri_only,KNN,150,53,32,38,27,0.533333,0.519457,0.435484,0.518878
+baseline_mri_only,Gaussian naive Bayes,150,56,29,32,33,0.593333,0.583258,0.519685,0.583542
+baseline_mri_only,Decision tree,150,48,37,36,29,0.513333,0.505430,0.442748,0.505398
+baseline_mri_only,SVM,150,66,19,45,20,0.573333,0.542081,0.384615,0.529042
+baseline_mri_only,Stacking,150,74,11,58,7,0.540000,0.489140,0.168675,0.425351
+baseline_mri_only,Random forest,150,54,31,38,27,0.540000,0.525339,0.439024,0.524597
+baseline_mri_only,AdaBoost,150,54,31,46,19,0.486667,0.463801,0.330435,0.457109
+baseline_mri_only,XGBoost,150,47,38,38,27,0.493333,0.484163,0.415385,0.484163
+baseline_mmse_only,Majority baseline,150,85,0,65,0,0.566667,0.500000,0.000000,0.361702
+baseline_mmse_only,Logistic regression,150,82,3,18,47,0.860000,0.843891,0.817391,0.851939
+baseline_mmse_only,KNN,150,73,12,17,48,0.806667,0.798643,0.768000,0.801143
+baseline_mmse_only,Gaussian naive Bayes,150,82,3,18,47,0.860000,0.843891,0.817391,0.851939
+baseline_mmse_only,Decision tree,150,82,3,18,47,0.860000,0.843891,0.817391,0.851939
+baseline_mmse_only,SVM,150,82,3,18,47,0.860000,0.843891,0.817391,0.851939
+baseline_mmse_only,Stacking,150,82,3,18,47,0.860000,0.843891,0.817391,0.851939
+baseline_mmse_only,Random forest,150,82,3,18,47,0.860000,0.843891,0.817391,0.851939
+baseline_mmse_only,AdaBoost,150,82,3,18,47,0.860000,0.843891,0.817391,0.851939
+baseline_mmse_only,XGBoost,150,82,3,18,47,0.860000,0.843891,0.817391,0.851939
