@@ -73,6 +73,16 @@ def poster_split(data):
     return data, y, train, test
 
 
+def baseline_folds(data):
+    """Select one first visit per participant and allocate the shared evaluation folds."""
+    baseline = data.loc[data.Visit.eq(1)].reset_index(drop=True)
+    if len(baseline) != data["Subject ID"].nunique() or baseline["Subject ID"].duplicated().any():
+        raise ValueError("Expected exactly one baseline record for every participant.")
+    y = baseline.CDR.gt(0).astype(int)
+    folds = list(StratifiedKFold(5, shuffle=True, random_state=SEED).split(baseline, y))
+    return baseline, y, folds
+
+
 def analyze(data):
     data, y, train, test = poster_split(data)
     rows = []
@@ -83,11 +93,7 @@ def analyze(data):
             rows.append(scores(name, protocol, y.iloc[test], model.predict(data.loc[test, features])))
 
     # Reanalysis: one first visit per person. The target is that visit's CDR > 0.
-    baseline = data.loc[data.Visit.eq(1)].reset_index(drop=True)
-    if len(baseline) != data["Subject ID"].nunique() or baseline["Subject ID"].duplicated().any():
-        raise ValueError("Expected exactly one baseline record for every participant.")
-    y = baseline.CDR.gt(0).astype(int)
-    folds = list(StratifiedKFold(5, shuffle=True, random_state=SEED).split(baseline, y))
+    baseline, y, folds = baseline_folds(data)
     for protocol, features in [("baseline_mri_mmse", CLINICAL), ("baseline_mri_only", MRI),
                                ("baseline_mmse_only", ["MMSE"])]:
         for name, model in models().items():

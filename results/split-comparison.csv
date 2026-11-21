@@ -1,0 +1,3 @@
+protocol,model,n,tn,fp,fn,tp,accuracy,balanced_accuracy,f1_positive,f1_macro
+by_visit,XGBoost,373,164,26,54,129,0.785523,0.784038,0.763314,0.783618
+by_participant,XGBoost,373,147,43,63,120,0.715818,0.714711,0.693642,0.714321

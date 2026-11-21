@@ -1,0 +1,11 @@
+protocol,fold,train_visits,test_visits,positive_test_visits,test_people,test_visits_from_people_seen_in_training
+by_visit,1,298,75,37,64,67
+by_visit,2,298,75,37,63,70
+by_visit,3,298,75,37,61,70
+by_visit,4,299,74,36,61,60
+by_visit,5,299,74,36,62,66
+by_participant,1,299,74,28,31,0
+by_participant,2,304,69,33,29,0
+by_participant,3,296,77,32,30,0
+by_participant,4,297,76,45,30,0
+by_participant,5,296,77,45,30,0

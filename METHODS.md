@@ -18,6 +18,14 @@ The XGBoost panel displays the two rows [57, 0] and [6, 49]. Its diagonal gives 
 
 ## How the new comparisons work
 
+### Follow-up experiments for the renewal
+
+**Split by visit or by person.** Use all 373 visits and the reconstructed longitudinal group label (Demented or Converted = 1). Fit the same XGBoost pipeline with MMSE, eTIV and nWBV. Assign folds using shuffled five-fold StratifiedKFold for visits and StratifiedGroupKFold with Subject ID for participants, both seeded at 42. Each visit is tested exactly once per protocol. Accuracy weights visits equally, so participants with more visits contribute more to the score. The fold audit counts held-out visits whose participant also appears in that fold's training data. The observed accuracy difference describes these two partitions in this cohort. The grouped folds have different training samples and varying class proportions, so the comparison cannot attribute the entire difference to overlap. [Fold audit](results/split-folds.csv) · [Pooled metrics](results/split-comparison.csv)
+
+**Pair baseline predictions by person.** Use the same 150 baseline records, binary CDR outcome and folds as the participant-level reanalysis below. For each person, compare the held-out XGBoost prediction using MMSE alone with the prediction after adding eTIV and nWBV. The eight cells in the output count every combination of recorded outcome, first prediction and second prediction. Summing over either prediction recovers the other model's confusion matrix. [Paired counts](results/paired-baseline-errors.csv)
+
+### Poster reconstruction and baseline evaluation
+
 **Visit-level reconstruction.** The table contains 190 Nondemented, 146 Demented and 37 Converted visits. Combining Demented and Converted as class 1 yields the poster's 50.9%/49.1% class proportions. This is a plausible reconstruction of the historical coding. It gives some pre-conversion visits a positive label. After sorting by subject and visit, a stratified 70/30 split with seed 42 gives 261 training and 112 test visits. Seventy people appear on both sides. Two runs use exactly the same rows, one with all four rank-one features and one excluding CDR. These runs illustrate how a label-related input affects the score on this particular split.
 
 **Participant-level reanalysis.** Keep each person's first visit and classify its recorded global CDR as zero or above zero. This uses the visit rating even when a participant's longitudinal group label differs. There are 85 zero and 65 positive ratings. Withhold CDR, group, identifiers and subsequent observations from predictors. Use the same five shuffled stratified folds (seed 42) for all models and feature sets. Each of the 150 people contributes one out-of-fold prediction. Compare two MRI summaries plus MMSE, MRI summaries alone, and MMSE alone.
