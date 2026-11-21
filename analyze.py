@@ -61,17 +61,21 @@ def scores(name, protocol, y, prediction):
                 f1_macro=f1_score(y, prediction, average="macro", zero_division=0))
 
 
-def analyze(data):
+def poster_split(data):
     if data["MRI ID"].duplicated().any() or data[["Subject ID", "Group", "CDR", "Visit"]].isna().any().any():
         raise ValueError("Expected unique session IDs and complete IDs, groups, visits and CDR.")
     if set(data.Group) != {"Demented", "Nondemented", "Converted"}:
         raise ValueError("Unexpected diagnostic group labels.")
     data = data.sort_values(["Subject ID", "Visit"]).reset_index(drop=True)
-    rows = []
-
     # Poster-informed sensitivity analysis. Converted is a subject-level label.
     y = data.Group.ne("Nondemented").astype(int)
     train, test = train_test_split(np.arange(len(y)), test_size=.3, random_state=SEED, stratify=y)
+    return data, y, train, test
+
+
+def analyze(data):
+    data, y, train, test = poster_split(data)
+    rows = []
     overlap = len(set(data.loc[train, "Subject ID"]) & set(data.loc[test, "Subject ID"]))
     for protocol, features in [("visit_split_with_cdr", RANK_ONE), ("visit_split_without_cdr", CLINICAL)]:
         for name, model in models().items():

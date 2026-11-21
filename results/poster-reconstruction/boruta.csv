@@ -1,0 +1,9 @@
+feature,poster_rank,reconstructed_rank,confirmed,tentative
+M/F,5,3,False,False
+Age,3,2,False,False
+EDUC,4,1,True,False
+MMSE,1,1,True,False
+CDR,1,1,True,False
+eTIV,1,1,True,False
+nWBV,1,1,True,False
+ASF,2,1,True,False
